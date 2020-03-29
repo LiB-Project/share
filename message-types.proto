@@ -1,0 +1,41 @@
+syntax = "proto3";
+package br.edu.ifpb.lib;
+option java_multiple_files = true;
+option java_package = "br.edu.ifpb.lib";
+
+message Document{
+    string idDocument = 1;
+    bytes file = 2;
+}
+
+message FrequencyDistributionRequest{
+    Document document = 1;
+    int32 total = 2;
+}
+
+message Frequency{
+    string word = 1;
+    int32 quantity = 2;
+}
+
+message DocumentoConteudo{
+    string idDocumento = 1;
+    string conteudo = 2;
+}
+
+message FrequencyDistribution{
+    string idDocument = 1;
+    repeated Frequency frequencies = 2;
+}
+
+message RecomendacaoRequest{
+    string idDocument = 1;
+}
+
+message RecomendacaoDocumento{
+    string idDocument = 1;
+    double similaridade = 2;
+}
+message RecomendacaoResponse{
+    repeated RecomendacaoDocumento recomendacoes = 1;
+}
